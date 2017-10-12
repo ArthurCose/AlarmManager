@@ -73,7 +73,7 @@ int AlarmData::getRemainingSeconds()
         QTime(hour, minute)
     );
 
-    return now.secsTo(setDateTime);
+    return now.secsTo(setDateTime) + 1;
 }
 
 QDataStream& operator<<(QDataStream& stream, const AlarmData& alarmData)
