@@ -6,8 +6,11 @@
 Alarm::Alarm()
 {
     notification.setIcon("clock");
+    notification.setAppName(tr("Alarm Manager"));
     notification.setSummary(tr("Alarm"));
     notification.addAction("dismiss", tr("dismiss"));
+    notification.addHint("suppress-sound", true);
+    notification.addHint("urgency", (uchar) 1);
     notification.setTimeout(ALARM_DURATION);
 
     audioLooper.setPlaybackMode(QMediaPlaylist::Loop);
