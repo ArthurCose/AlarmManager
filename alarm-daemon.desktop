@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Icon=clock
+Name=Alarm Manager
+GenericName=
+Comment=
+Exec=alarm-manager-daemon
+NoDisplay=true
