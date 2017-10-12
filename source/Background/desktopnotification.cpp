@@ -59,9 +59,9 @@ void DesktopNotification::addAction(QString identifier, QString localized)
     actionList.append(localized);
 }
 
-void DesktopNotification::setHints(QVariantMap hints)
+void DesktopNotification::addHint(QString key, QVariant value)
 {
-    this->hints = hints;
+    hints.insert(key, value);
 }
 
 void DesktopNotification::setTimeout(int ms)
@@ -84,17 +84,21 @@ void DesktopNotification::show()
     );
 
     id = reply.value();
+    visible = true;
 }
 
 void DesktopNotification::close()
 {
     dbus.call("CloseNotification", id);
+    visible = false;
 }
 
 void DesktopNotification::actionInvoked(uint id, QString identifier)
 {
     if(this->id != id)
         return;
+
+    visible = false;
 
     emit action(identifier);
     emit closed();
@@ -105,6 +109,8 @@ void DesktopNotification::notificationClosed(uint id, uint reason)
     // notification matches and wasn't programmatically closed to continue
     if(this->id != id || reason == 3)
         return;
+
+    visible = false;
 
     emit closed();
 }

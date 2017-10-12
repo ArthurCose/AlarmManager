@@ -15,7 +15,7 @@ public:
     void setBody(QString body);
     void setActions(QMap<QString, QString> actions);
     void addAction(QString identifier, QString localized);
-    void setHints(QVariantMap hints);
+    void addHint(QString key, QVariant value);
     void setTimeout(int ms);
     void show();
     void close();
