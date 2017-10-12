@@ -10,7 +10,6 @@ AlarmManager::AlarmManager(QObject *parent) :
     loadAlarms();
 }
 
-#include <iostream>
 void AlarmManager::loadAlarms()
 {
     QFile file(SAVE_FILE_PATH);
