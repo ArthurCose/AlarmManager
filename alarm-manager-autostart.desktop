@@ -4,5 +4,5 @@ Icon=clock
 Name=Alarm Manager
 GenericName=
 Comment=
-Exec=alarm-manager-daemon
+Exec=alarm-manager-background-process
 NoDisplay=true

@@ -1,4 +1,4 @@
-TARGET = alarm-manager-daemon
+TARGET = alarm-manager-background-process
 
 CONFIG += c++11 console
 CONFIG -= app_bundle

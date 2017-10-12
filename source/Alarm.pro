@@ -1,3 +1,3 @@
 TEMPLATE = subdirs
 CONFIG += ordered
-SUBDIRS = Shared Daemon GUI
+SUBDIRS = Shared Background GUI
