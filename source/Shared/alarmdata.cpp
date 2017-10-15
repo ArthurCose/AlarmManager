@@ -9,19 +9,19 @@ bool AlarmData::reoccurs()
 
 int AlarmData::getFirstRecurrenceOfTheWeek()
 {
-    if(sunday)
-        return 1;
     if(monday)
-        return 2;
+        return 1;
     if(tuesday)
-        return 3;
+        return 2;
     if(wednesday)
-        return 4;
+        return 3;
     if(thursday)
-        return 5;
+        return 4;
     if(friday)
-        return 6;
+        return 5;
     if(saturday)
+        return 6;
+    if(sunday)
         return 7;
     return -1;
 }
@@ -31,8 +31,8 @@ int AlarmData::getRemainingDays()
     QDateTime currentDateTime = QDateTime::currentDateTime();
     int dayOfTheWeek = currentDateTime.date().dayOfWeek();
 
-    // start the date for the alarm on sunday
-    QDateTime alarmDateTime = currentDateTime.addDays(0 - dayOfTheWeek);
+    // start the date for the alarm on monday
+    QDateTime alarmDateTime = currentDateTime.addDays(1 - dayOfTheWeek);
     alarmDateTime.setTime(
         QTime(hour, minute)
     );
@@ -51,7 +51,7 @@ int AlarmData::getRemainingDays()
 
     // find a recurrence datetime that is after the current datetime
 
-    bool reoccur[] = {sunday, monday, tuesday, wednesday, thursday, friday, saturday};
+    bool reoccur[] = {monday, tuesday, wednesday, thursday, friday, saturday, sunday};
 
     for(int i = 0; i < 7; ++i)
     {
