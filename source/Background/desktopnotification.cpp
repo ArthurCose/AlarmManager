@@ -98,7 +98,7 @@ void DesktopNotification::actionInvoked(uint id, QString identifier)
     if(this->id != id)
         return;
 
-    visible = false;
+    close();
 
     emit action(identifier);
     emit closed();
